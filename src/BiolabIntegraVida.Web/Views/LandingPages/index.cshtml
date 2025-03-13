@@ -1,0 +1,237 @@
+@using BiolabIntegraVida.Web.ViewModels.LandingPages
+@model IndexViewModel
+
+<!DOCTYPE html>
+<html dir="ltr" lang="pt-BR">
+<head>
+	<partial name="~/Views/PartialViews/HeadDependencies.cshtml" />
+
+	<!-- Document Title
+	============================================= -->
+	<title>Programa Merck Cuida</title>
+
+</head>
+
+<body class="stretched">
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper">
+
+		<partial name="~/Views/PartialViews/HeaderLayout.cshtml" />
+
+		<!-- Slider
+		============================================= -->
+		<section id="slider" class="slider-element" style="margin-bottom: 30px;">
+
+			<!-- Slider Background Map
+			============================================= -->			
+			<img class="banner-topo hidden-xs" src="img/banner-topo.png" alt="Programa Merck Cuida">
+			
+			<!-- Slider Titles
+			============================================= -->
+			<div class="vertical-middle container dark hidden-xs" style="padding-top: 50px">
+				<div class="row justify-content-between align-items-center">
+					<div class="col-md-7">
+						<div class="slider-title">
+							<h2 class="text-white text-rotater mb-3 d-inline-block font-merck gradient-text gradient-horizon" data-separator="," data-rotate="fadeIn" data-speed="3500">Nosso compromisso<br> com a saúde dos<br> nossos pacientes.</h2>
+							<p class="sub-titulo">Seu <strong>programa de desconto</strong> em<br> medicamentos Merck.</p>
+						</div>
+						<a href="#cadastre-se" class="button btn-merck text-white button-large color ms-0">Cadastre-se</a>
+					</div>
+					
+				</div>
+			</div>
+
+				<!-- Banner Mobile
+			============================================= -->			
+			<img class=" visible-xs" src="img/banner-topo-mob.png" alt="Programa Merck Cuida - Mobile">
+
+		</section><!-- #slider end -->
+
+		
+		<!-- Content
+		============================================= -->
+		<section id="content">
+			<div class="content-wrap py-0">
+
+				<div class="bg-roxo">
+
+					<div id="como-funciona" class="container" style="">
+
+						<!-- Slider negetive Box
+						============================================= -->
+						<div class="row justify-content-center slider-box-wrap">
+							<div class="col-12 col-md-10">
+								<div class="slider-bottom-box" style="border-radius: 50px;">
+									<div class="row align-items-center">
+										<div class="col-lg-12 mb-3 mb-lg-0">
+											<h2 class="mb-3 h1 fw-light font-merck text-roxo text-center">Como funciona</h2>
+											<p class="text-center mb-0">
+												<img src="img/grafico-linha.png" alt="Como Funciona - Merck" title="Como Funciona - Merck">
+											</p>
+
+											<div class="col-lg-12 pt-20" style="padding-left: 3%; padding-right: 3%">
+											<div class="row text-center">
+											
+											<div class="col-lg-3 text-roxo text-center col-sm-3 mb-30-mob">
+												Tenha em mãos sua <strong>prescrição<br> médica</strong>.
+											</div>
+											<div class="col-lg-3 text-roxo text-center col-sm-3 mb-30-mob">
+												<strong>Cadastre-se</strong> pelo site ou nas farmácias credenciadas no programa.
+											</div>
+											<div class="col-lg-3 text-roxo text-center col-sm-3 mb-30-mob">
+												<strong>Informe</strong> seus dados. <strong>Leia e aceite</strong> o regulamento.
+											</div>
+											<div class="col-lg-3 text-roxo text-center col-sm-3 mb-30-mob">
+												Tudo certo!<br><strong>Aproveite os descontos</strong>.
+											</div>
+										</div>
+									</div>
+
+										</div>
+								
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Features Section
+						============================================= -->
+						<div id="cadastre-se" class=" text-center mx-auto mb-0 pb-80 pt-80 pt-80-mob" style="margin-top: -30px">
+							<p class="text-input">Estamos comprometidos em<br> oferecer o <strong>melhor suporte</strong> para<br> sua jornada de tratamento.</p>
+						
+							<form id="cadastre-se-form" method="post" action="/cadastre-se">
+								<div><input id="input-cpf" class="input-cpf" type="text" name="cpf" id="cpf" placeholder="Coloque seu CPF" /><br></div>
+								<div><span class="input-validation" name="cpf" id="cpf-validation"></span></div>
+								<div><input class="submit-cpf" type="submit" id="cadastre-se-submit" value="Cadastre-se" /></div>
+							</form>
+						</div>
+					</div>
+				</div>
+
+				<!-- Domain Section
+				============================================= -->
+				<div id="encontre" class="section section-domain mt-0 mb-0" style="background: #F5F5F5">
+					<div class="container">
+						<div class="row justify-content-between align-items-center">
+							<div class="col-md-12">
+								<div class="heading-block mb-0 border-bottom-0 text-center">
+									<h3 class="ls-0 text-transform-none font-merck text-rosa">Encontre uma farmácia</h3>									
+								</div>
+							</div>
+							
+							<div class="col-md-12">
+								<div class="heading-block mb-0 border-bottom-0">
+									
+									<p class="mb-0 fs-4 text-roxo text-center mb-20">Conheça as<br> <strong>farmácias parceiras</strong>.</p>
+
+									<div class="row text-center">
+										<div class="col-lg-3">
+											<div class="box-parceiros">
+												<img src="img/parceiros/parceiro-01-droga-raia.png" alt="Parceiro - DrogaRaia" title="Parceiro - DrogaRaia">
+											</div>
+										</div>
+										<div class="col-lg-3">
+											<div class="box-parceiros justify-content-between align-items-center">
+												<img src="img/parceiros/parceiro-02-araujo.png" alt="Parceiro - Araújo" title="Parceiro - Araújo">
+											</div>
+										</div>
+										<div class="col-lg-3">
+											<div class="box-parceiros">
+												<img src="img/parceiros/parceiro-03-drogarias-pacheco.png" alt="Parceiro - Drogarias Pacheco" title="Parceiro - Drogarias Pacheco">
+											</div>
+										</div>
+										<div class="col-lg-3">
+											<div class="box-parceiros">
+												<img src="img/parceiros/parceiro-04-panvel-farmacias.png" alt="Parceiro - Panvel Farmácias" title="Parceiro - Panvel Farmácias">
+											</div>
+										</div>
+										<div class="col-lg-3">
+											<div class="box-parceiros">
+												<img src="img/parceiros/parceiro-05-drogaria-sao-paulo.png" alt="Parceiro - Drogaria São Paulo" title="Parceiro - Drogaria São Paulo">
+											</div>
+										</div>
+										<div class="col-lg-3">
+											<div class="box-parceiros">
+												<img src="img/parceiros/parceiro-06-drogaria-vencancio.png" alt="Parceiro - Drogaria Venâncio" title="Parceiro - Drogaria Venâncio">
+											</div>
+										</div>
+										<div class="col-lg-3">
+											<div class="box-parceiros">
+												<img src="img/parceiros/parceiro-07-drogasil.png" alt="Parceiro - Drogasil" title="Parceiro - Drogasil">
+											</div>
+										</div>
+										<div class="col-lg-3">
+											<div class="box-parceiros">
+												<img src="img/parceiros/parceiro-08-farmcais-pague-menos.png" alt="Parceiro - Farmácias Pague Menos" title="Parceiro - Farmácias Pague Menos">
+											</div>
+										</div>
+										<div class="col-lg-3">
+											<div class="box-parceiros">
+												<img src="img/parceiros/parceiro-09-nossa-drogaria.png" alt="Parceiro - A Nossa Drogaria" title="Parceiro - A Nossa Drogaria">
+											</div>
+										</div>
+										<div class="col-lg-3">
+											<div class="box-parceiros">
+												<img src="img/parceiros/parceiro-10-clarovida.png" alt="Parceiro - Drogaria ClaroVida" title="Parceiro - Drogaria ClaroVida">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-12" style="display: flex;justify-content: center">
+								<form class="busca-cep-form" id="busca-cep-form">
+									<div class="input-group shadow-lg" style="border-radius: 50px;">
+										<input type="text" max="9" name="cep" class="form-control input-cep not-dark" value="" placeholder="Coloque seu CEP">
+										<span class="input-group-text bg-white"><input class="submit-cep" type="submit" name="cep-submit" id="cep-submit-desktop" value="Buscar" /></span>
+									</div>
+								</form>
+							</div>
+
+							<div class="col-md-4" style="max-height:600px; overflow-y:scroll;">
+								<div class="box-resultados">
+									<div class="box-resultados-int" >
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-8 mt-4 mt-lg-0">
+								<article class="portfolio-item pt-50">
+									<div class="portfolio-image">
+										<div style="border:0; border-radius: 50px; width: 100%; height: 600px;" class="google-maps" id="google-maps-container"></div>
+									</div>
+								</article>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</section><!-- #content end -->
+
+		<partial name="~/Views/PartialViews/FooterPink.cshtml" />
+
+		<partial name="~/Views/PartialViews/ContentRegulamento.cshtml" />
+
+		<div id="top-bar" class="text-center dark">
+			
+		</div>
+
+	</div><!-- #wrapper end -->
+
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="uil uil-angle-up"></div>
+
+	<partial name="~/Views/PartialViews/FootDependencies.cshtml" />
+
+	<script type="text/javascript">
+		(function() {
+			merckPages.indexPage('@Model.GoogleMapsApiKey');
+		})();
+	</script>
+</body>
+</html>

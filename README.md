@@ -1,4 +1,4 @@
-# MerckCuida - Documentação
+# BiolabIntegraVida - Documentação
 Escrito por Vinicius Quinafelex Alves<br/>Versão 1.1 (31/01/2025)
 
 ## Sumário

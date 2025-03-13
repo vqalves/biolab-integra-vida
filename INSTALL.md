@@ -1,4 +1,4 @@
-# MerckCuida - Instalação
+# BiolabIntegraVida - Instalação
 Versão 2 (10/02/2025)
 
 ## Configuração
@@ -7,7 +7,7 @@ Versão 2 (10/02/2025)
 ## Publicação do projeto
 Gerar binários através do comando `dotnet`. Os arquivos binários devem ser hospedados em algum servidor web, utilizando Windows/IIS, Linux/kestrel, Linux/nginx ou similares.
 ```bash
-dotnet publish .\src\MerckCuida.Web\ -c Release
+dotnet publish .\src\BiolabIntegraVida.Web\ -c Release
 ```
 
 Ou gerar uma imagem através do Docker e hospedar em um sistema de conteiners.
@@ -28,7 +28,7 @@ A chave deve ser alimentada dentro do `applicationSettings.json`
 }
 ```
 
-Na conta do Google, criar um Maps ID chamado `merckcuida-farmacias`, de acordo com as instruções oficiais do Google<br/>
+Na conta do Google, criar um Maps ID chamado `BiolabIntegraVida-farmacias`, de acordo com as instruções oficiais do Google<br/>
 https://developers.google.com/maps/documentation/javascript/map-ids/get-map-id
 
 É importante que a conta do Google Maps esteja com o billing configurado. Caso contrário, no site poderá aparecer que o mapa não pôde ser carregado corretamente.
