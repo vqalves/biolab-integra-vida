@@ -1,0 +1,16 @@
+/* ----------------------------------------------------------------
+	Custom CSS
+
+	Add all your Custom Styled CSS here for New Styles or
+	Overwriting Default Theme Styles for Better Handling Updates
+-----------------------------------------------------------------*/
+
+.input-validation { color: #f00; }
+
+.cadastre-se-section .input-validation {
+	display: block;
+	width: 100%;
+	overflow: hidden;
+}
+
+input[type=submit][disabled] { background-color: #ccc; }

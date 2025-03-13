@@ -1,0 +1,275 @@
+@using MerckCuida.Web.ViewModels.LandingPages
+@model CadastreSeViewModel
+
+<!DOCTYPE html>
+<html dir="ltr" lang="pt-BR">
+<head>
+	<partial name="~/Views/PartialViews/HeadDependencies.cshtml" />
+
+	<!-- Document Title
+	============================================= -->
+	<title>Programa Merck Cuida | Cadastre-se</title>
+
+</head>
+
+<body class="stretched">
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper">
+
+		<partial name="~/Views/PartialViews/HeaderLayout.cshtml" />
+
+		<!-- Content
+		============================================= -->
+		<section id="content" class="cadastre-se-section">
+			<div class="content-wrap py-0">
+
+
+				<!-- Domain Section
+				============================================= -->
+				<div id="cadastro-pessoa-section" class="section section-domain mt-0 mb-0" style="background: #F5F5F5">
+					<div class="container">
+						<div class="row justify-content-between align-items-center">
+							<div class="col-md-12 pt-40">
+								<div class="heading-block mb-0 border-bottom-0 text-center">
+									<h3 class="ls-0 text-transform-none font-merck text-rosa">Cadastre-se</h3>		
+									<p class="text-roxo">no Programa Merck Cuida:</p>							
+								</div>
+							</div>
+							
+							<div class="col-md-10 offset-lg-1 col-12">
+								<div class="box-conteudo p-60 p-10-mob pt-40-mob">
+
+									<form class="row pl-100 pr-100 pr-10-mob pl-10-mob" id="cadastro-form" action="#" method="post" enctype="multipart/form-data">
+										<div class="col-12 form-group">
+											<label>CPF:</label>
+											<input type="text" name="cpf" id="cpf" class="form-control" readonly value="@Model.CPF">
+											<span class="input-validation" id="cpf-validation"></span>
+										</div>
+										<div class="col-12 form-group">
+											<label>Medicamento:</label>
+
+											<select class="selectpicker" name="medicamento" id="medicamento" data-live-search="true">
+												<option value="" selected disabled>-- Selecione --</option>
+
+												@foreach (var produto in Model.Produtos)
+												{
+													<option value="@produto.ProdutoOriginal.ean">@produto.Nome</option>
+												}
+											</select>
+
+											<span class="input-validation" id="medicamento-validation"></span>
+										</div>
+										<!--
+										<div class="col-12 form-group">
+											<label>Tipo de Cadastro:</label>
+											<select class="form-select required" name="tipo-cadastro" id="tipo-cadastro">
+												<option value="" selected disabled>-- Selecione --</option>
+												<option value="1">Exemplo #01</option>
+												<option value="2">Exemplo #02</option>
+												<option value="3">Exemplo #03</option>
+												<option value="4">Exemplo #04</option>
+												<option value="5">Exemplo #05</option>
+											</select>
+											<span class="input-validation" id="tipo-cadastro-validation"></span>
+										</div>
+										-->
+										<div class="col-md-8 col-12 form-group">
+											<label>Nome Completo:</label>
+											<input type="text" name="nome" id="nome" class="form-control" value="" placeholder="">
+											<span class="input-validation" id="nome-validation"></span>
+										</div>
+										<div class="col-md-4 col-12 form-group">
+											<label>Data de Nascimento:</label>
+											<input type="text" name="nascimento" id="nascimento" class="form-control" value="" placeholder="__/__/____">
+											<span class="input-validation" id="nascimento-validation"></span>
+										</div>
+										<div class="col-md-6 col-12 form-group">
+											<label>E-mail:</label>
+											<input type="text" name="email" id="email" class="form-control" value="" placeholder="">
+											<span class="input-validation" id="email-validation"></span>
+										</div>
+										<div class="col-md-2 col-4 form-group">
+											<label>DDD:</label>
+											<input type="text" name="ddd" id="ddd" class="form-control" value="" placeholder="11">
+											<span class="input-validation" id="ddd-validation"></span>
+										</div>
+										<div class="col-md-4 col-8 form-group">
+											<label>Telefone:</label>
+											<input type="text" name="telefone" id="telefone" class="form-control" value="" placeholder="9 0000-0000" maxlength="9">
+											<span class="input-validation" id="telefone-validation"></span>
+										</div>
+
+										<div class="fancy-title title-border-color">
+											<h6 class="text-rosa">Dados do Médico</h6>
+										</div>
+
+										<div class="col-md-8 col-12 form-group">
+											<label>CRM do Médico:</label>
+											<input type="text" name="crm" id="crm" class="form-control" value="" placeholder="Apenas números">
+											<span class="input-validation" id="crm-validation"></span>
+										</div>
+										<div class="col-md-4 col-12 form-group">
+											<label>UF:</label>
+											<select class="form-select" name="uf" id="uf">
+												<option value="" selected disabled>-- Selecione --</option>
+
+												@foreach(var uf in Model.UFs)
+												{
+													<option value="@uf.Sigla">@uf.Nome</option>
+												}
+											</select>
+											<span class="input-validation" id="uf-validation"></span>
+										</div>
+
+										<div class="fancy-title title-border-color">
+											<h6 class="text-rosa">Aceite de Comunicação</h6>
+										</div>
+
+										<div class="col-12 form-group">
+
+											<div class="form-check">
+												<div>
+													<input type="checkbox" class="form-check-input" name="comunicacao-celular" id="comunicacao-celular">
+													<label class="form-check-label" for="comunicacao-celular">Concordo em receber comunicação via celular</label>
+												</div>
+												<span class="input-validation" id="comunicacao-celular-validation"></span>
+											</div>
+
+											<div class="form-check">
+												<div>
+													<input type="checkbox" class="form-check-input" name="comunicacao-email" id="comunicacao-email">
+													<label class="form-check-label" for="comunicacao-email">Concordo em receber comunicação via e-mail</label>
+												</div>
+												<span class="input-validation" id="comunicacao-email-validation"></span>
+											</div>
+
+										</div>
+										
+										
+										<div class="col-12 d-none">
+											<label>Nome da mãe:</label>
+											<input type="text" id="nome-mae" name="nome-mae" value="">
+											<span class="input-validation" id="nome-mae-validation"></span>
+										</div>
+										<div class="col-12 text-center pt-50 pt-0-mob">
+											
+											<input class="submit-cep" type="submit" id="submit-cadastro" value="Continuar" />
+										</div>
+									</form>
+
+									
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+
+
+				<div id="cadastro-senha-section" class="hidden section section-domain mt-0 mb-0" style="background: #F5F5F5">
+					<div class="container">
+						<div class="row justify-content-between align-items-center">
+							<div class="col-md-12 pt-40">
+								<div class="heading-block mb-0 border-bottom-0 text-center">
+									<h3 class="ls-0 text-transform-none font-merck text-rosa">Senha</h3>		
+									<p class="text-roxo">Para acessar os serviços exclusivos do Programa Merck Cuida<br class="hidden-xs">cadastre a sua senha conforme a orientação abaixo.</p>							
+								</div>
+							</div>
+							
+							<div class="col-md-10 offset-lg-1 col-12">
+								<div class="box-conteudo p-60 p-10-mob pt-50-mob">
+
+									<form class="row pl-100 pr-100 pr-0-mob pl-0-mob" id="senha-form" action="#" method="post" enctype="multipart/form-data">
+									
+										<!-- <label class="text-success">Senha: <i class="text-sucess bi-check-circle-fill"></i></label> -->
+										<!-- <label class="text-danger">Confirmar Senha: <i class="text-danger bi-exclamation-circle-fill"></i></label> -->
+
+										<div class="col-md-6 col-12 form-group">
+											<label>Senha:</label>
+											<input type="password" name="password-1" id="password-1" class="form-control" value="">
+										</div>
+										<div class="col-md-6 col-12 form-group">
+											<label>Confirmar Senha:</label>
+											<input type="password" name="password-2" id="password-2" class="form-control" value="">
+										</div>
+										
+
+										<div class="col-12 form-group">
+
+											<p>
+												
+												<i class="text-black-50 bi-circle-fill" id="password-validation-charcount"></i> A senha deve ter no mínimo 8 caracteres<br>
+												<i class="text-black-50 bi-circle-fill" id="password-validation-specialchar"></i> @("Incluir um caractere especial (!@#$%&*-+()|/)")<br>
+												<i class="text-black-50 bi-circle-fill" id="password-validation-number"></i> Incluir um número</br>
+												<i class="text-black-50 bi-circle-fill" id="password-validation-match"></i> Senhas correspondem</br>
+											
+											
+										</div>
+										
+										
+										<div class="col-12 d-none">
+											<input type="text" id="honeypot" name="honeypot" value="">
+										</div>
+										<div class="col-12 text-center pt-0">
+											<a href="#" id="btn-voltar-para-cadastro" class="btn-voltar"><i class="bi-arrow-return-left"></i> Voltar</a>
+											<input class="submit-cep" type="submit" name="submit-senha" id="submit-senha" value="Finalizar Cadastro" />
+										</div>
+	
+										<input type="hidden" name="prefix" value="event-registration-">
+									</form>
+
+									
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+
+				<div id="confirmacao-section" class="hidden section section-domain mt-0 mb-0" style="background: #F5F5F5">
+					<div class="container">
+						<div class="row justify-content-between align-items-center">
+							<div class="col-md-10 offset-lg-1">
+								<div class="box-conteudo p-60 p-20-mob">
+
+									<div class="col-md-12 pt-40">
+										<div class="heading-block mb-0 border-bottom-0 text-center">
+											<h3 class="ls-0 text-transform-none font-merck text-rosa">Tudo certo!</h3>		
+											<h5 class="text-roxo">Você já pode aproveitar seus descontos</h5>							
+										</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section><!-- #content end -->
+
+		<partial name="~/Views/PartialViews/FooterRoxo.cshtml" />
+
+		<partial name="~/Views/PartialViews/ContentRegulamento.cshtml" />
+
+		<div id="top-bar" class="text-center dark">
+			
+		</div>
+
+	</div><!-- #wrapper end -->
+
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="uil uil-angle-up"></div>
+
+	<partial name="~/Views/PartialViews/FootDependencies.cshtml" />
+
+	<script type="text/javascript">
+		merckLib.makeAutocomplete(document.getElementById('medicamento'), @Html.Raw(Model.ProdutosAsJavascriptArray()));
+		merckValidations.cadastreSe();
+	</script>
+
+</body>
+</html>
