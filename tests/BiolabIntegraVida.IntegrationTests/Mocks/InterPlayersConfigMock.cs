@@ -5,13 +5,13 @@ namespace BiolabIntegraVida.IntegrationTests.Mocks
     public class InterPlayersConfigMock : IInterPlayersConfig
     {
         // ADB2C
-        public string GetAdB2cClientId() => "060539be-e19e-4143-b229-56c86b1f89fe";
-        public string GetAdB2cClientSecret() => "HSb8Q~YZay.uACXtHwyXUqafHOFSzsOe~_bQMcMX";
+        public string GetAdB2cClientId() => "1af339e8-289a-45d4-88c7-baaa1c9a85c2";
+        public string GetAdB2cClientSecret() => "say8Q~FclwAAhdHtzbu8NMKItfymPhb06j_zrcMk";
         public string GetAdB2cScope() => "https://interplayersdevb2c.onmicrosoft.com/services/loyalty-api/.default";
         public string GetAdB2cTokenUrl() => "https://interplayersdevb2c.b2clogin.com/interplayersdevb2c.onmicrosoft.com/B2C_1_Loyalty/oauth2/v2.0/token";
 
         // Loyalty
-        public string GetLoyaltyAdministratorId() => "041";
+        public string GetLoyaltyAdministratorId() => "021";
         public string GetLoyaltyUrlAceitarLgpd() => "https://idp-api-gtw.azure-api.net/external-loyalty-registration-pre/v1/Registrations/administrators/{administratorId}/consumers/{userId}/accept-term";
         public string GetLoyaltyUrlAderirProduto() => "https://idp-api-gtw.azure-api.net/external-loyalty-adhesion-pre/v1/Adhesion/administrators/{administratorId}/consumers/{userId}/products";
         public string GetLoyaltyUrlCadastrarPaciente() => "https://idp-api-gtw.azure-api.net/external-loyalty-registration-pre/v1/Registrations/administrators/{administratorId}/consumers";
