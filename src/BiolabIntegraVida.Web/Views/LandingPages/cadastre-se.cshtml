@@ -8,7 +8,7 @@
 
 	<!-- Document Title
 	============================================= -->
-	<title>Programa Merck Cuida | Cadastre-se</title>
+	<title>Programa Integra Vida | Cadastre-se</title>
 
 </head>
 
@@ -17,8 +17,56 @@
 	<!-- Document Wrapper
 	============================================= -->
 	<div id="wrapper">
+		<!-- Top Bar
+		============================================= -->
+		<div id="top-bar" class="text-center dark">
+		</div>
 
-		<partial name="~/Views/PartialViews/HeaderLayout.cshtml" />
+		<!-- Header
+		============================================= -->
+		<header id="header" class=" bg-white " data-sticky-class="not-dark" data-responsive-class="not-dark">
+			<div id="header-wrap">
+				<div class="container">
+					<div class="header-row">
+
+						<!-- Logo
+						============================================= -->
+						<div id="logo">
+							<a href="index.html">
+								<img class="logo-default p-2" srcset="img/logo-integra-vida.png" src="img/logo-integra-vida.png" alt="Logo Programa Integra Vida" title="Logo Programa Integra Vida">
+							</a>
+						</div><!-- #logo end -->
+
+
+						<div class="primary-menu-trigger">
+							<button class="cnvs-hamburger" type="button" title="Open Mobile Menu">
+								<span class="cnvs-hamburger-box"><span class="cnvs-hamburger-inner"></span></span>
+							</button>
+						</div>
+
+						<!-- Primary Navigation
+						============================================= -->
+						<nav class="primary-menu with-arrows">
+
+							<ul class="menu-container">
+								<li class="menu-item"><a class="menu-link" href="/#como-funciona"><div>Como Funciona</div></a></li>
+								<li class="menu-item"><a class="menu-link" href="cadastre-se"><div>Cadastre-se</div></a></li>
+								<li class="menu-item"><a class="menu-link" href="/#encontre"><div>Encontre uma Farmácia</div></a></li>
+								<li class="menu-item"><a class="menu-link open-regulamento-menu" href="#modal-regulamento"><div>Regulamento</div></a></li>
+							</ul>
+
+						</nav><!-- #primary-menu end -->
+
+					</div>
+				</div>
+			</div>
+			<div class="header-wrap-clone"></div>
+		</header><!-- #header end -->
+
+
+
+
+
 
 		<!-- Content
 		============================================= -->
@@ -33,8 +81,8 @@
 						<div class="row justify-content-between align-items-center">
 							<div class="col-md-12 pt-40">
 								<div class="heading-block mb-0 border-bottom-0 text-center">
-									<h3 class="ls-0 text-transform-none font-merck text-rosa">Cadastre-se</h3>		
-									<p class="text-roxo">no Programa Merck Cuida:</p>							
+									<h3 class="text-azul text-uppercase pb-0 fw-bolder mb-0">Cadastre-se</h3>
+									<p class="text-roxo pt-0 mt-0">no Programa Integra Vida</p>
 								</div>
 							</div>
 							
@@ -102,7 +150,7 @@
 										</div>
 
 										<div class="fancy-title title-border-color">
-											<h6 class="text-rosa">Dados do Médico</h6>
+											<h6 class="text-verde">Dados do Médico</h6>
 										</div>
 
 										<div class="col-md-8 col-12 form-group">
@@ -124,7 +172,7 @@
 										</div>
 
 										<div class="fancy-title title-border-color">
-											<h6 class="text-rosa">Aceite de Comunicação</h6>
+											<h6 class="text-verde">Aceite de Comunicação</h6>
 										</div>
 
 										<div class="col-12 form-group">
@@ -250,7 +298,20 @@
 			</div>
 		</section><!-- #content end -->
 
-		<partial name="~/Views/PartialViews/FooterRoxo.cshtml" />
+
+		<section id="" class=" mt-0 pt-0 bg-roxo-int">
+			<div class="container">
+				<div class="swiper_wrapper text-center pt-100" data-loop="true">
+         
+					<p class="text-white text-center mt-40"><img src="img/logo-integra-vida-bc.png" alt="Programa Integra Vida" title="Programa Integra Vida"></p>
+
+					<p class="text-white text-center mt-40">
+						© 2025 Programa Integra Vida®. All rights reserved.
+					</p>
+				</div>
+			</div>
+		</section>
+
 
 		<partial name="~/Views/PartialViews/ContentRegulamento.cshtml" />
 
@@ -267,8 +328,8 @@
 	<partial name="~/Views/PartialViews/FootDependencies.cshtml" />
 
 	<script type="text/javascript">
-		merckLib.makeAutocomplete(document.getElementById('medicamento'), @Html.Raw(Model.ProdutosAsJavascriptArray()));
-		merckValidations.cadastreSe();
+		qrvLib.makeAutocomplete(document.getElementById('medicamento'), @Html.Raw(Model.ProdutosAsJavascriptArray()));
+		qrvValidations.cadastreSe();
 	</script>
 
 </body>

@@ -17679,10 +17679,10 @@ body:not(.top-search-open) .top-search-parent .primary-menu-trigger {
   border-top: 0;
 }
 .menu-item:hover > .menu-link {
-  color: #E8308A;
+  color: #00236B;
 }
 .menu-item.current > .menu-link {
-  color: #E8308A;
+  color: #00236B;
 }
 .menu-item .sub-menu-trigger {
   display: block;
@@ -31490,13 +31490,13 @@ button::-moz-focus-inner {
     line-height: 36px;
     position: absolute;
     right: 10px;
-    background-color: #e8308a !important;
+    background-color: #00236B !important;
     top: 35px;
     text-decoration: none;
     text-align: center;
     opacity: 1;
     padding: 0 0 18px 10px;
-    color: var(--cnvs-mfp-controls-color);
+    color: #FFF !important;
     font-style: normal;
     font-size: var(--cnvs-mfp-close-btn-font-size);
 }

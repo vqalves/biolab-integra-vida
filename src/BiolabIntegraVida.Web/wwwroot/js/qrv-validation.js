@@ -1,4 +1,4 @@
-var merckValidations = (function () {
+var qrvValidations = (function () {
 	const cadastreSe = function () {
 		var cadastroPessoaSection = document.getElementById('cadastro-pessoa-section');
 		var cadastroSenhaSection = document.getElementById('cadastro-senha-section');
@@ -12,9 +12,9 @@ var merckValidations = (function () {
 
 			for (var section of allSections) {
 				if (section === element) {
-					merckLib.replaceClasses(section, [], ["hidden"]);
+					qrvLib.replaceClasses(section, [], ["hidden"]);
 				} else {
-					merckLib.replaceClasses(section, ["hidden"], []);
+					qrvLib.replaceClasses(section, ["hidden"], []);
 				}
 			}
 		}
@@ -45,17 +45,17 @@ var merckValidations = (function () {
 		(function () {
 			// Masks
 			var nascimentoField = cadastroForm.querySelector("#nascimento");
-			merckLib.maskInput(nascimentoField, "##/##/####");
+			qrvLib.maskInput(nascimentoField, "##/##/####");
 
 			var dddField = cadastroForm.querySelector("#ddd");
-			merckLib.maskInput(dddField, "##");
+			qrvLib.maskInput(dddField, "##");
 
 			var crmField = cadastroForm.querySelector("#crm");
-			merckLib.maskInput(crmField, "######");
+			qrvLib.maskInput(crmField, "######");
 
 			// Form submit
 			var submit = cadastroForm.querySelector('#submit-cadastro');
-			var submitState = merckLib.createToggleButtonState(submit, "Continuar", "Cadastrando...");
+			var submitState = qrvLib.createToggleButtonState(submit, "Continuar", "Cadastrando...");
 
 			var cpfValidationField = cadastroForm.querySelector('#cpf-validation');
 
@@ -78,7 +78,7 @@ var merckValidations = (function () {
 
 				event.preventDefault(); // Impede o envio padrão do formulário
 
-				merckLib.cleanValidations(
+				qrvLib.cleanValidations(
 					cpfValidationField,
 					medicamentoValidationField,
 					// tipoCadastroValidationField,
@@ -117,18 +117,18 @@ var merckValidations = (function () {
 							return;
 						}
 
-						merckLib.toggleValidation(cpfValidationField, json.validations["cpf"]);
-						merckLib.toggleValidation(medicamentoValidationField, json.validations["medicamento"]);
-						// merckLib.toggleValidation(tipoCadastroValidationField, json.validations["tipo-cadastro"]);
-						merckLib.toggleValidation(nomeValidationField, json.validations["nome"]);
-						merckLib.toggleValidation(nascimentoValidationField, json.validations["nascimento"]);
-						merckLib.toggleValidation(emailValidationField, json.validations["email"]);
-						merckLib.toggleValidation(dddValidationField, json.validations["ddd"]);
-						merckLib.toggleValidation(telefoneValidationField, json.validations["telefone"]);
-						merckLib.toggleValidation(crmValidationField, json.validations["crm"]);
-						merckLib.toggleValidation(ufValidationField, json.validations["uf"]);
-						merckLib.toggleValidation(comunicacaoCelularValidationField, json.validations["comunicacao-celular"]);
-						merckLib.toggleValidation(comunicacaoEmailValidationField, json.validations["comunicacao-email"]);
+						qrvLib.toggleValidation(cpfValidationField, json.validations["cpf"]);
+						qrvLib.toggleValidation(medicamentoValidationField, json.validations["medicamento"]);
+						// qrvLib.toggleValidation(tipoCadastroValidationField, json.validations["tipo-cadastro"]);
+						qrvLib.toggleValidation(nomeValidationField, json.validations["nome"]);
+						qrvLib.toggleValidation(nascimentoValidationField, json.validations["nascimento"]);
+						qrvLib.toggleValidation(emailValidationField, json.validations["email"]);
+						qrvLib.toggleValidation(dddValidationField, json.validations["ddd"]);
+						qrvLib.toggleValidation(telefoneValidationField, json.validations["telefone"]);
+						qrvLib.toggleValidation(crmValidationField, json.validations["crm"]);
+						qrvLib.toggleValidation(ufValidationField, json.validations["uf"]);
+						qrvLib.toggleValidation(comunicacaoCelularValidationField, json.validations["comunicacao-celular"]);
+						qrvLib.toggleValidation(comunicacaoEmailValidationField, json.validations["comunicacao-email"]);
 
 						submitState.enable();
 					})
@@ -146,7 +146,7 @@ var merckValidations = (function () {
 			// Form submit
 			var blockSubmit = true;
 			var submit = senhaForm.querySelector('#submit-senha');
-			var submitState = merckLib.createToggleButtonState(submit, "Finalizar Cadastro", "Finalizando...");
+			var submitState = qrvLib.createToggleButtonState(submit, "Finalizar Cadastro", "Finalizando...");
 
 			// validation labels
 			var passValidationCharCount = senhaForm.querySelector('#password-validation-charcount');
@@ -156,11 +156,11 @@ var merckValidations = (function () {
 
 			var displayValidationResult = function (element, classes) {
 				var variations = [classesOk, classesError, classesUnchecked];
-				merckLib.addClasses(element, classes);
+				qrvLib.addClasses(element, classes);
 
 				for (var variation of variations) {
 					if (variation !== classes) {
-						merckLib.removeClasses(element, variation);
+						qrvLib.removeClasses(element, variation);
 					}
 				}
 			}

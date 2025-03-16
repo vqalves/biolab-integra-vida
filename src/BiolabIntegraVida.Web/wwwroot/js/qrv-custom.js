@@ -1,4 +1,4 @@
-var merckLib = (function() {
+var qrvLib = (function() {
     var debug = true;
 
     var sendDebug = function(...params) {
@@ -285,6 +285,6 @@ var merckLib = (function() {
 
     regulamento.addEventListener('click', function (event) {
         event.preventDefault();
-        merckLib.openRegulamento(false, null);
+        qrvLib.openRegulamento(false, null);
     });
 })();

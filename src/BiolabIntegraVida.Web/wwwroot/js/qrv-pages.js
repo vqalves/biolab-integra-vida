@@ -1,4 +1,4 @@
-var merckPages = (function () {
+var qrvPages = (function () {
 
     const indexPage = function (googleMapsKey) {
         (g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })({
@@ -17,7 +17,7 @@ var merckPages = (function () {
                 map = new Map(document.getElementById("google-maps-container"), {
                     center: { lat: -34.397, lng: 150.644 },
                     zoom: 13,
-                    mapId: 'BiolabIntegraVida-farmacias'
+                    mapId: 'biolab-farmacias'
                 });
             }
 
@@ -61,12 +61,12 @@ var merckPages = (function () {
 
 			// Masks
 			var cpfField = form.querySelector('#input-cpf');
-			merckLib.maskInput(cpfField, "###.###.###-##");
+			qrvLib.maskInput(cpfField, "###.###.###-##");
 
 			// Form submit
 			var blockSubmit = true;
 			var submit = form.querySelector('#cadastre-se-submit');
-			var submitState = merckLib.createToggleButtonState(submit, "Cadastre-se", "Cadastrando...");
+			var submitState = qrvLib.createToggleButtonState(submit, "Cadastre-se", "Cadastrando...");
 
 			var cpfValidationField = form.querySelector('#cpf-validation');
 
@@ -76,8 +76,8 @@ var merckPages = (function () {
 				if (!blockSubmit)
 					return true;
 
-				event.preventDefault(); // Impede o envio padrï¿½o do formulï¿½rio
-				merckLib.toggleValidation(cpfValidationField, []);
+				event.preventDefault(); // Impede o envio padrão do formulário
+				qrvLib.toggleValidation(cpfValidationField, []);
 
 				const formData = new FormData(form);
 				const actionUrl = form.action;
@@ -89,17 +89,17 @@ var merckPages = (function () {
 					.then(response => response.json())
 					.then(json => {
 						submitState.enable();
-						merckLib.toggleValidation(cpfValidationField, json.validations['cpf']);
+						qrvLib.toggleValidation(cpfValidationField, json.validations['cpf']);
 
 						if (!json.hasMessage) {
-							merckLib.openRegulamento(true, (event) => {
+							qrvLib.openRegulamento(true, (event) => {
 								var button = event.target;
-								var regulamentoAceitarState = merckLib.createToggleButtonState(button, "Aceitar e continuar", "Aceitando...");
+								var regulamentoAceitarState = qrvLib.createToggleButtonState(button, "Aceitar e continuar", "Aceitando...");
 
 								event.preventDefault();
 								blockSubmit = false;
 
-								merckLib.removeClasses(button, ['text-white']);
+								qrvLib.removeClasses(button, ['text-white']);
 
 								regulamentoAceitarState.disable();
 								form.submit();
@@ -141,12 +141,12 @@ var merckPages = (function () {
 
 			var setupForm = function (form) {
 				var submit = form.querySelector('.submit-cep');
-				var submitState = merckLib.createToggleButtonState(submit, "Buscar", "Buscando...");
+				var submitState = qrvLib.createToggleButtonState(submit, "Buscar", "Buscando...");
 
 				form.addEventListener('submit', function (event) {
 					submitState.disable();
 
-					event.preventDefault(); // Impede o envio padrï¿½o do formulï¿½rio
+					event.preventDefault(); // Impede o envio padrão do formulário
 
 					const formData = new FormData(form);
 
@@ -163,9 +163,9 @@ var merckPages = (function () {
 
 							if (json && json.length > 0) {
 								gmaps.displayLojas(json);
-								merckLib.removeClasses(containerParent, ['hidden']);
+								qrvLib.removeClasses(containerParent, ['hidden']);
 							} else {
-								merckLib.addClasses(containerParent, ['hidden']);
+								qrvLib.addClasses(containerParent, ['hidden']);
 							}
 						})
 						.catch(error => {
