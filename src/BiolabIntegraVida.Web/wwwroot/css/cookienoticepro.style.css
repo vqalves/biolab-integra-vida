@@ -1,0 +1,439 @@
+/*
+ * Copyright (c) 2021 Flerosoft (https://flerosoft.com)
+ * Software Name: Cookie Notice Pro - jQuery Plugin
+ * Product Page : https://cookienoticepro.flerosoft.com
+ * Documentation: https://cookienoticepro.flerosoft.com/docs
+ * Description: Cookie Notice Pro, a lightweight jQuery plugin, helps you to comply with GDPR.
+Make your own cookie information popup in minutes.
+ */
+
+/*********************** Cookie Dialog ***********************/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+:root {
+  --cookieNoticeProLight: #ffffff;
+  --cookieNoticeProDark: #393d4d;
+}
+
+#cookieNoticePro *{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  font-family: 'Poppins', sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+#cookieNoticePro button,
+#cookieNoticePro a {
+  cursor: pointer;
+  color: inherit;
+  font-family: inherit;
+}
+#cookieNoticePro button{
+  outline: none;
+  border: none;
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+#cookieNoticePro strong,
+#cookieNoticePro em {
+  font-weight: bold;
+  font-family: inherit;
+}
+#cookieNoticePro a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+#cookieNoticePro a:focus,
+#cookieNoticePro input:focus {
+  outline: none;
+  list-style: none;
+}
+
+
+#cookieNoticePro.light {
+  background-color: #ffffff;
+  background-color: var(--cookieNoticeProLight);
+  color: #393d4d;
+  color: var(--cookieNoticeProDark);
+}
+
+#cookieNoticePro.light p,
+#cookieNoticePro.light ul {
+  color: #393d4d;
+  color: var(--cookieNoticeProDark);
+}
+
+#cookieNoticePro.light h5 {
+  color: var(--cookieNoticeProDark);
+}
+
+#cookieNoticePro.light button#cookieReject {
+  background: #ffffff;
+  background: var(--cookieNoticeProLight);
+}
+
+#cookieNoticePro.dark {
+  background-color: #393d4d;
+  background-color: var(--cookieNoticeProDark);
+  color: #ffffff;
+  color: var(--cookieNoticeProLight);
+}
+#cookieNoticePro.dark p,
+#cookieNoticePro.dark ul {
+  color: #ffffff;
+  color: var(--cookieNoticeProLight);
+}
+
+#cookieNoticePro.dark h5 {
+  color: #ffffff;
+  color: var(--cookieNoticeProLight);
+}
+#cookieNoticePro.dark button#cookieReject {
+  background: transparent;
+  color: #ffffff;
+  color: var(--cookieNoticeProLight);
+  border: 1px solid #ffffff;
+  border: 1px solid var(--cookieNoticeProLight);
+}
+
+#cookieNoticePro {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: fixed;
+  padding: 20px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 6px 6px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 6px 6px rgba(0, 0, 0, 0.25);
+  font-family: inherit;
+  z-index: 999997;
+}
+
+#cookieNoticePro #closeIcon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  color: #bfb9b9;
+  overflow: hidden;
+  opacity: 0.85;
+  z-index: 999999;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+}
+
+#cookieNoticePro svg{
+  display: block;
+}
+
+#cookieNoticePro.display-left {
+  left: 30px;
+  bottom: 30px;
+  max-width: 395px;
+}
+
+#cookieNoticePro.display-right {
+  right: 30px;
+  bottom: 30px;
+  max-width: 395px;
+}
+
+#cookieNoticePro.display-top {
+  top: 30px;
+  width: 800px;
+  left: 50%;
+  margin-left: -400px;
+}
+
+#cookieNoticePro.display-bottom {
+  bottom: 30px;
+  width: 800px;
+  left: 50%;
+  margin-left: -400px;
+}
+
+#cookieNoticePro.display-top .content-wrap,
+#cookieNoticePro.display-bottom .content-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#cookieNoticePro.display-top .msg-wrap,
+#cookieNoticePro.display-bottom .msg-wrap {
+  max-width: 65%;
+  width: 100%;
+}
+
+#cookieNoticePro.display-top .msg-wrap,
+#cookieNoticePro.display-bottom .msg-wrap {
+  margin-bottom: 0;
+}
+
+#cookieNoticePro.display-top #cookieSettings,
+#cookieNoticePro.display-bottom #cookieSettings {
+  margin-bottom: 0;
+}
+
+#cookieNoticePro.display-top #cookieTypes,
+#cookieNoticePro.display-bottom #cookieTypes {
+  margin-top: 20px;
+}
+
+#cookieNoticePro .btn-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  font-weight: bold;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 -5px 0 -5px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+#cookieNoticePro .btn-wrap button {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 0 7px;
+  margin: 0 5px 10px 5px;
+  border-radius: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  min-width: 130px;
+  line-height: 36px;
+  border: none;
+  font-family: inherit;
+  font-size: 16px;
+  -webkit-transition: -webkit-box-shadow .3s;
+  transition: -webkit-box-shadow .3s;
+  -o-transition: box-shadow .3s;
+  transition: box-shadow .3s;
+  transition: box-shadow .3s, -webkit-box-shadow .3s;
+}
+#cookieNoticePro .btn-wrap button:hover{
+  -webkit-transition: -webkit-box-shadow .4s cubic-bezier(.25, .8, .25, 1), -webkit-transform .4s cubic-bezier(.25, .8, .25, 1);
+  transition: -webkit-box-shadow .4s cubic-bezier(.25, .8, .25, 1), -webkit-transform .4s cubic-bezier(.25, .8, .25, 1);
+  -o-transition: box-shadow .4s cubic-bezier(.25, .8, .25, 1), transform .4s cubic-bezier(.25, .8, .25, 1);
+  transition: box-shadow .4s cubic-bezier(.25, .8, .25, 1), transform .4s cubic-bezier(.25, .8, .25, 1);
+  transition: box-shadow .4s cubic-bezier(.25, .8, .25, 1), transform .4s cubic-bezier(.25, .8, .25, 1), -webkit-box-shadow .4s cubic-bezier(.25, .8, .25, 1), -webkit-transform .4s cubic-bezier(.25, .8, .25, 1);
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+  -webkit-transform: translate3d(0, -1px, 0);
+          transform: translate3d(0, -1px, 0);
+}
+
+#cookieNoticePro #cookieSettings {
+  font-size: 12px;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+#cookieNoticePro #cookieSettings svg {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+#cookieNoticePro h4 {
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#cookieNoticePro .title-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+#cookieNoticePro .title-wrap svg {
+  margin-right: 10px;
+}
+
+#cookieNoticePro h5 {
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 12px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+#cookieNoticePro p,
+#cookieNoticePro ul {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+#cookieNoticePro p:last-child {
+  margin-bottom: 0;
+  text-align: left;
+}
+#cookieNoticePro li {
+  width: 49%;
+  display: inline-block;
+}
+#cookieNoticePro a {
+  text-decoration: none;
+  font-size: 14px;
+  padding-bottom: 2px;
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.75);
+  -webkit-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
+
+#cookieTypes label {
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+#cookieNoticePro button:disabled {
+  opacity: 0.3;
+}
+#cookieNoticePro input[type="checkbox"] {
+  -webkit-appearance: auto;
+  -moz-appearance: auto;
+  appearance: auto;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeSpeed;
+  width: 14px;
+  height: 14px;
+  margin: 4px 10px 0px 0px;
+  display: block;
+  float: left;
+  position: relative;
+  outline: none;
+  border: none;
+}
+#cookieNoticePro input[type="checkbox"]:checked:after {
+  background: #d3d3d3;
+  content: "\2714";
+  color: #808080;
+}
+
+#cookieNoticePro input[type="checkbox"]:after {
+  content: "";
+  vertical-align: middle;
+  text-align: center;
+  line-height: 13px;
+  position: absolute;
+  cursor: pointer;
+  height: 14px;
+  width: 14px;
+  left: 0;
+  top: 0;
+  font-size: 10px;
+  background: #d3d3d3;
+}
+
+#cookieNoticePro.display-top.full-width-true,
+#cookieNoticePro.display-bottom.full-width-true {
+  width: 100%;
+  max-width: 100%;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  top: 0;
+  border-radius: 0;
+  margin: auto;
+}
+
+#cookieNoticePro.display-bottom.full-width-true {
+  bottom: 0;
+  top: auto;
+  -webkit-box-shadow: 0 -3px 3px rgb(0 0 0 / 25%);
+          box-shadow: 0 -3px 3px rgb(0 0 0 / 25%);
+}
+
+#cookieNoticePro.display-top.full-width-true .title-wrap,
+#cookieNoticePro.display-bottom.full-width-true .title-wrap {
+  display: none;
+}
+
+#cookieNoticePro.display-top.full-width-true .btn-wrap button,
+#cookieNoticePro.display-bottom.full-width-true .btn-wrap button {
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 800px) {
+  #cookieNoticePro.display-top,
+  #cookieNoticePro.display-bottom {
+    width: 100%;
+    max-width: 100%;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    top: 0;
+    border-radius: 0;
+    margin: auto;
+  }
+
+  #cookieNoticePro.display-bottom {
+    bottom: 0;
+    top: auto;
+    -webkit-box-shadow: 0 -3px 3px rgb(0 0 0 / 25%);
+            box-shadow: 0 -3px 3px rgb(0 0 0 / 25%);
+  }
+
+  #cookieNoticePro.display-top .btn-wrap button,
+  #cookieNoticePro.display-bottom .btn-wrap button {
+    margin-bottom: 10px;
+  }
+
+  #cookieNoticePro.display-top .msg-wrap,
+  #cookieNoticePro.display-bottom .msg-wrap {
+    margin-right: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #cookieNoticePro.display-left,
+  #cookieNoticePro.display-right {
+    width: 100%;
+    max-width: 100%;
+    left: auto;
+    right: auto;
+    bottom: 0;
+    border-radius: 0;
+    -webkit-box-shadow: 0 -3px 3px rgb(0 0 0 / 25%);
+            box-shadow: 0 -3px 3px rgb(0 0 0 / 25%);
+  }
+
+  #cookieNoticePro.display-top .content-wrap,
+  #cookieNoticePro.display-bottom .content-wrap {
+    display: block;
+  }
+  #cookieNoticePro.display-top .msg-wrap,
+  #cookieNoticePro.display-bottom .msg-wrap {
+    max-width: 100%;
+  }
+  #cookieNoticePro.display-top #cookieSettings,
+  #cookieNoticePro.display-bottom #cookieSettings {
+    margin-bottom: 20px;
+  }
+}
