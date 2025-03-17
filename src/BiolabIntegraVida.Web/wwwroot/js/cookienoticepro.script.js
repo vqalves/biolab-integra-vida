@@ -35,7 +35,7 @@ const config = {
 	description: "Este site utiliza cookies ou tecnologias similares, para aprimorar sua experiência de navegação e oferecer recomendações personalizadas. Ao continuar utilizando este site, você concorda com a nossa ", // Message
 	acceptBtnLabel: "Aceitar", // Accept cookie button text
 	declineInfoBtnLabel: "Recusar", // Decline cookie button text
-	moreInfoBtnLink: "https://www.merckgroup.com/br-pt/privacy-statement.html", // Learn more link(default: privacy policy page)
+	moreInfoBtnLink: "#privacy-statement.html", // Learn more link(default: privacy policy page)
 	moreInfoBtnLabel: "Política de Privacidade", // More info link text
 	cookieTypesTitle: "Selecione os cookies para aceitar", // Title of cookie preference options
 	necessaryCookieTypeLabel: "Necessário", // Label text of Necessary cookie item
