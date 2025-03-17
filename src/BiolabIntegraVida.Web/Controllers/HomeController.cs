@@ -36,7 +36,8 @@ public class HomeController : BaseController
     {
         var vm = new IndexViewModel
         (
-            googleMapsApiKey: values.GoogleMapsApiKey
+            googleMapsApiKey: values.GoogleMapsApiKey,
+            googleAnalyticsId: values.GoogleAnalyticsId
         );
 
         return View("Views/LandingPages/index.cshtml", vm);
@@ -128,7 +129,8 @@ public class HomeController : BaseController
         (
             ufs: ufs,
             cpf: cpf ?? "000.000.000-00",
-            produtos: produtos
+            produtos: produtos,
+            googleAnalyticsId: appSettingsValues.GoogleAnalyticsId
         );
 
         return View("Views/LandingPages/cadastre-se.cshtml", vm);

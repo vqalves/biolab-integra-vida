@@ -24,6 +24,10 @@ body::-webkit-scrollbar {
 	border: none;  /* creates padding around scroll thumb */
   }
 
+  .box-resultados-int{
+	max-height:600px;
+	overflow-y:scroll;
+  }
 
 .box-resultados-int::-webkit-scrollbar {
 	width: 4px;               /* width of the entire scrollbar */
@@ -286,13 +290,13 @@ background-color: #FFF;
 }
 
 .resultado-nome{
-	color:#B2D235 !important;
+	color:#00236b !important;
 	font-family: "Noto Sans", sans-serif;
 	font-weight: bold;
 }
 
 .resultado-endereco {
-	color: #B2D235;
+	color: #00236b;
 	font-size: 14px;
 	line-height: 14px;
 	margin-top: 5px;
@@ -306,7 +310,7 @@ background-color: #FFF;
 }
 
 .resultado-telefone {
-	color: #B2D235;
+	color: #00236b;
 	font-size:16px;
 	
 	line-height: 16px;

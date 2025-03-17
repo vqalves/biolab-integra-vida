@@ -8,6 +8,7 @@ namespace BiolabIntegraVida.Web.Configuration
     {
         public bool ApplicationConfigCompressContent { get; init; }
         public string GoogleMapsApiKey { get; init; }
+        public string GoogleAnalyticsId { get; init; }
 
         public string InterPlayersAdB2cTokenUrl { get; init; }
         public string InterPlayersAdB2cClientId { get; init; }
@@ -27,11 +28,13 @@ namespace BiolabIntegraVida.Web.Configuration
         public string InterPlayersLoyaltyUrlAderirProduto { get; init; }
 
         public IEnumerable<InterPlayersCustomProductName> InterPlayersCustomProductNames { get; init; }
+        
 
         public AppSettingsValues(IConfiguration config)
         {
             ApplicationConfigCompressContent = GetValueOrThrow<bool>(config, "ApplicationConfig:CompressContent");
             GoogleMapsApiKey = GetValueOrThrow<string>(config, "GoogleMaps:ApiKey");
+            GoogleAnalyticsId = GetValueOrThrow<string>(config, "GoogleAnalytics:Id"); 
 
             InterPlayersAdB2cTokenUrl = GetValueOrThrow<string>(config, "InterPlayers:AdB2c:TokenUrl");
             InterPlayersAdB2cScope = GetValueOrThrow<string>(config, "InterPlayers:AdB2c:Scope");

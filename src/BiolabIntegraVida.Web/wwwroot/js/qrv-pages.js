@@ -123,18 +123,18 @@ var qrvPages = (function () {
 				if (data.phone) {
 					phoneHtml = `<div class="resultado-telefone">
 						<i class="i-style rounded bi-telephone" style="background-color:#FF1493"></i>
-						<span class="text-uppercase">${data.phone}</span>
+                        <span class="text-uppercase">${data.phone}</span>
 					</div>`;
 				}
 
 				var html = `<div class="resultado-pesquisa">
-					<div class="resultado-nome">${data.name} ${data.zipCode}</div>
-					<div class="resultado-endereco">
-						<i class="i-style rounded uil-map-marker-alt" style="background-color:#FF1493"></i>
-						<span class="text-uppercase">${data.address}</span>
-					</div>
-					${phoneHtml}
-				</div>`;
+                    <div class="resultado-nome">${data.name} ${data.zipCode}</div>
+                    <div class="resultado-endereco">
+                        <i class="i-style rounded uil-map-marker-alt" style="background-color:#FF1493"></i>
+                        <span class="text-uppercase">${data.address}</span>
+                    </div>
+                    ${phoneHtml}
+                </div>`;
 
 				return html;
 			}

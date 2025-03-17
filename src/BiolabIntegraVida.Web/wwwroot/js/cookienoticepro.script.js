@@ -40,11 +40,11 @@ const config = {
 	cookieTypesTitle: "Selecione os cookies para aceitar", // Title of cookie preference options
 	necessaryCookieTypeLabel: "Necessário", // Label text of Necessary cookie item
 	necessaryCookieTypeDesc: "Estes cookies são necessários para o funcionamento do site e não podem ser desativados nos nossos sistemas.", // Hover text of necessary cookies
-	onConsentAccept: ()=> { // It will inject scripts in head if cookie preferences menu(showSettingsBtn) is enabled
-		config.showSettingsBtn? injectScripts() : null;
+	onConsentAccept: () => { // It will inject scripts in head if cookie preferences menu(showSettingsBtn) is enabled
+		qrvCookie.checkActivateAnalytics();
 	},
 	onConsentReject: ()=> { // This code will run on cookie reject/decline
-	  console.log("Política Rejeitada!");
+	  // console.log("Política Rejeitada!");
 	},
 	cookieTypes: [
 	  // Cookie types, value and description (Cookie Preferences Selection)
@@ -65,6 +65,7 @@ const config = {
 	  },
 	],
 };
+
 
 
 (function ($) {

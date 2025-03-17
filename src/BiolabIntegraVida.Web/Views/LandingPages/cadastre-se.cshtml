@@ -328,8 +328,15 @@
 	<partial name="~/Views/PartialViews/FootDependencies.cshtml" />
 
 	<script type="text/javascript">
-		qrvLib.makeAutocomplete(document.getElementById('medicamento'), @Html.Raw(Model.ProdutosAsJavascriptArray()));
-		qrvValidations.cadastreSe();
+		(function() {
+			var medicamentoElement = document.getElementById('medicamento');
+			var produtos = @Html.Raw(Model.ProdutosAsJavascriptArray());
+
+			qrvLib.makeAutocomplete(medicamentoElement, produtos);
+			qrvValidations.cadastreSe();
+			qrvCookie.init('@Model.GoogleAnalyticsId');
+		})
+		
 	</script>
 
 </body>
