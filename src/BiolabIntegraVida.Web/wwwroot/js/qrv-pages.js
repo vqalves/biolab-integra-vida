@@ -122,7 +122,7 @@ var qrvPages = (function () {
 				var phoneHtml = "";
 				if (data.phone) {
 					phoneHtml = `<div class="resultado-telefone">
-						<i class="i-style rounded bi-telephone" style="background-color:#FF1493"></i>
+						<i class="i-style rounded bi-telephone" style="background-color:#8DC63F"></i>
                         <span class="text-uppercase">${data.phone}</span>
 					</div>`;
 				}
@@ -130,7 +130,7 @@ var qrvPages = (function () {
 				var html = `<div class="resultado-pesquisa">
                     <div class="resultado-nome">${data.name} ${data.zipCode}</div>
                     <div class="resultado-endereco">
-                        <i class="i-style rounded uil-map-marker-alt" style="background-color:#FF1493"></i>
+                        <i class="i-style rounded uil-map-marker-alt" style="background-color:#8DC63F"></i>
                         <span class="text-uppercase">${data.address}</span>
                     </div>
                     ${phoneHtml}

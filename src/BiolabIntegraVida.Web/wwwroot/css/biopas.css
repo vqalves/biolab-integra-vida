@@ -24,10 +24,11 @@ body::-webkit-scrollbar {
 	border: none;  /* creates padding around scroll thumb */
   }
 
-  .box-resultados-int{
-	max-height:600px;
-	overflow-y:scroll;
-  }
+.box-resultados-int {
+	max-height: 600px;
+	overflow-y: scroll;
+	margin-right: -10px;
+}
 
 .box-resultados-int::-webkit-scrollbar {
 	width: 4px;               /* width of the entire scrollbar */
@@ -322,6 +323,14 @@ background-color: #FFF;
 
 .resultado-pesquisa{
 	margin-bottom: 30px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.resultado-pesquisa:first-child,
+.resultado-pesquisa:last-child {
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .w-80-regulamento{
