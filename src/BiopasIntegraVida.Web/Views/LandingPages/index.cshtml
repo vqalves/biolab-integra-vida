@@ -1,0 +1,313 @@
+@using BiopasIntegraVida.Web.ViewModels.LandingPages
+@model IndexViewModel
+
+<!DOCTYPE html>
+<html dir="ltr" lang="pt-BR">
+<head>
+	<partial name="~/Views/PartialViews/HeadDependencies.cshtml" />
+
+	<!-- Document Title
+	============================================= -->
+	<title>Programa Integra Vida | Biopas</title>
+
+</head>
+
+<body class="stretched">
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper">
+
+
+
+		<!-- Header
+		============================================= -->
+		<header id="header" class="bg-white" data-sticky-class="not-dark" data-responsive-class="not-dark">
+			<div id="header-wrap">
+				<div class="container">
+					<div class="text-center">
+
+
+						<div class="primary-menu-trigger">
+							<button class="cnvs-hamburger" type="button" title="Open Mobile Menu">
+								<span class="cnvs-hamburger-box"><span class="cnvs-hamburger-inner"></span></span>
+							</button>
+						</div>
+
+						<!-- Primary Navigation
+						============================================= -->
+						<nav class="primary-menu with-arrows">
+
+
+							<ul class="menu-container justify-content-center">
+								<li class="menu-item"><a class="menu-link" href="/#como-funciona"><div>Sobre o Programa</div></a></li>
+								<li class="menu-item"><a class="menu-link" href="/cadastre-se"><div>Como Participar</div></a></li>
+								<li class="menu-item"><a class="menu-link" href="/#encontre"><div>Encontre uma Farmácia</div></a></li>
+								<li class="menu-item"><a class="menu-link open-regulamento-menu" href="#modal-regulamento"><div>Regulamento</div></a></li>
+							</ul>
+
+						</nav><!-- #primary-menu end -->
+
+					</div>
+				</div>
+			</div>
+			<div class="header-wrap-clone"></div>
+		</header><!-- #header end -->
+		<!-- Top Bar
+		============================================= -->
+		<div id="top-bar" class="text-center dark">
+		</div>
+
+		<!-- Slider
+		============================================= -->
+		<section id="" class=" bg-white">
+
+
+
+			<!-- Slider Titles
+			============================================= -->
+			<div class="pb-50 pt-50 text-center container dark ">
+				<div class="row justify-content-between align-items-center">
+					<div class="col-md-12">
+						<div class="slider-title">
+							<img src="img/logo-integra-vida.png" alt="Programa Integra Vida" title="Programa Integra Vida">
+							<p class="fw-medium text-black-50">O <strong>Programa Integra Vida</strong> conecta inovação, acesso e qualidade de vida,<br> proporcionando acesso contínuo para que pacientes tenham adesão e<br> continuidade ao tratamento.</p>
+						</div>
+						<!-- <a href="#cadastre-se" class="button btn-biopas text-white button-large color ms-0">Cadastre-se</a> -->
+					</div>
+
+				</div>
+			</div>
+
+
+
+		</section><!-- #slider end -->
+		<!-- Content
+		============================================= -->
+		<section id="content">
+			<div class="content-wrap py-0">
+
+				<div class="bg-roxo">
+
+					<div id="como-funciona" class="container pt-30">
+
+						<!-- Slider negetive Box
+						============================================= -->
+						<div class="row justify-content-center slider-box-wrap">
+							<div class="col-12 col-md-10">
+								<div class="slider-bottom-box" style="border-radius: 50px;">
+									<div class="row align-items-center">
+										<div class="col-lg-12 mb-3 mb-lg-0">
+											<h2 class="mb-3 h1 fw-bolder text-uppercase text-center">Como participar</h2>
+
+											<div class="col-lg-12 pt-20" style="padding-left: 3%; padding-right: 3%">
+												<div class="row text-center">
+
+													<div class="col-lg-3 text-black-50 text-center col-sm-3 mb-30-mob">
+														<span class="row justify-content-center">
+															<div class="circulo-01"><h2 class="h1 fw-bolder text-uppercase text-center">1.</h2></div>
+														</span>
+														Tenha em mãos sua <strong>prescrição<br> médica</strong>.
+													</div>
+													<div class="col-lg-3 text-black-50 text-center col-sm-3 mb-30-mob">
+														<span class="row justify-content-center">
+															<div class="circulo-02"><h2 class="h1 fw-bolder text-uppercase text-center">2.</h2></div>
+														</span>
+														<strong>Cadastre-se</strong> pelo site Integra Vida ou nas farmácias parceiras.
+													</div>
+													<div class="col-lg-3 text-black-50 text-center col-sm-3 mb-30-mob">
+														<span class="row justify-content-center">
+															<div class="circulo-03"><h2 class="h1 fw-bolder text-uppercase text-center">3.</h2></div>
+														</span>
+														<strong>Preencha o<br> cadastro</strong> e dê o aceite<br> no regulamento.
+													</div>
+													<div class="col-lg-3 text-black-50 text-center col-sm-3 mb-30-mob">
+														<span class="row justify-content-center">
+															<div class="circulo-04"><h2 class="h1 fw-bolder text-uppercase text-center">4.</h2></div>
+														</span>
+														Pronto! Você já pode<br><strong>aproveitar seus benefícios</strong>.
+													</div>
+												</div>
+											</div>
+
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Features Section
+						============================================= -->
+						<div id="cadastre-se" class=" text-center mx-auto mb-0 pb-80 pt-80 pt-80-mob" style="margin-top: -30px">
+							<p class="h3 lh-1 text-white fw-bolder">Vamos iniciar o seu<br> cadastro?</p>
+
+							<form id="cadastre-se-form" method="post" action="/cadastre-se">
+								<div><input id="input-cpf" class="input-cpf" type="text" name="cpf" id="cpf" placeholder="Coloque seu CPF" /><br></div>
+								<div><span class="input-validation" name="cpf" id="cpf-validation"></span></div>
+								<div><input class="submit-cpf" type="submit" id="cadastre-se-submit" value="Cadastre-se" /></div>
+							</form>
+						</div>
+					</div>
+				</div>
+
+				<!-- Domain Section
+				============================================= -->
+				<div id="encontre" class="section section-domain mt-0 mb-0" style="background: #00236b">
+					<div class="container">
+						<div class="row justify-content-between align-items-center">
+							<div class="col-md-12">
+								<div class="heading-block mb-0 border-bottom-0 text-center">
+									<h2 class="mb-3 h1 fw-bolder text-white text-uppercase text-center">Encontre uma Farmácia</h2>
+								</div>
+							</div>
+
+							<!--
+							<div class="col-md-12">
+								<div class="heading-block mb-0 border-bottom-0">
+
+
+									<div class="row text-center">
+										<div class="col-lg-3">
+											<div class="box-parceiros">
+												<img src="img/parceiros/parceiro-01-droga-raia.png" alt="Parceiro - DrogaRaia" title="Parceiro - DrogaRaia">
+											</div>
+										</div>
+										<div class="col-lg-3">
+											<div class="box-parceiros justify-content-between align-items-center">
+												<img src="img/parceiros/parceiro-02-araujo.png" alt="Parceiro - Araújo" title="Parceiro - Araújo">
+											</div>
+										</div>
+										<div class="col-lg-3">
+											<div class="box-parceiros">
+												<img src="img/parceiros/parceiro-03-drogarias-pacheco.png" alt="Parceiro - Drogarias Pacheco" title="Parceiro - Drogarias Pacheco">
+											</div>
+										</div>
+										<div class="col-lg-3">
+											<div class="box-parceiros">
+												<img src="img/parceiros/parceiro-04-panvel-farmacias.png" alt="Parceiro - Panvel Farmácias" title="Parceiro - Panvel Farmácias">
+											</div>
+										</div>
+										<div class="col-lg-3">
+											<div class="box-parceiros">
+												<img src="img/parceiros/parceiro-05-drogaria-sao-paulo.png" alt="Parceiro - Drogaria São Paulo" title="Parceiro - Drogaria São Paulo">
+											</div>
+										</div>
+										<div class="col-lg-3">
+											<div class="box-parceiros">
+												<img src="img/parceiros/parceiro-06-drogaria-vencancio.png" alt="Parceiro - Drogaria Venâncio" title="Parceiro - Drogaria Venâncio">
+											</div>
+										</div>
+										<div class="col-lg-3">
+											<div class="box-parceiros">
+												<img src="img/parceiros/parceiro-07-drogasil.png" alt="Parceiro - Drogasil" title="Parceiro - Drogasil">
+											</div>
+										</div>
+										<div class="col-lg-3">
+											<div class="box-parceiros">
+												<img src="img/parceiros/parceiro-08-farmcais-pague-menos.png" alt="Parceiro - Farmácias Pague Menos" title="Parceiro - Farmácias Pague Menos">
+											</div>
+										</div>
+										<div class="col-lg-3">
+											<div class="box-parceiros">
+												<img src="img/parceiros/parceiro-09-nossa-drogaria.png" alt="Parceiro - A Nossa Drogaria" title="Parceiro - A Nossa Drogaria">
+											</div>
+										</div>
+										<div class="col-lg-3">
+											<div class="box-parceiros">
+												<img src="img/parceiros/parceiro-10-clarovida.png" alt="Parceiro - Drogaria ClaroVida" title="Parceiro - Drogaria ClaroVida">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							-->
+
+							<div class="col-md-12 pb-30" style="display: flex;justify-content: center">
+								<form class="busca-cep-form pt-40" id="busca-cep-form">
+									<div class="input-group shadow-lg" style="border-radius: 50px;">
+										<input type="text" max="9" name="cep" class="form-control input-cep not-dark" value="" placeholder="Coloque seu CEP">
+										<span class="input-group-text bg-white"><input class="submit-cep" type="submit" name="cep-submit" id="cep-submit-desktop" value="Buscar" /></span>
+									</div>
+								</form>
+							</div>
+
+							<div class="col-md-4" style="max-height:600px">
+								<div class="box-resultados">
+									<div class="box-resultados-int">
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-8 mt-4 mt-lg-0">
+								<article class="portfolio-item">
+									<div class="portfolio-image">
+										<div style="border:0; border-radius: 50px; width: 100%; height: 600px;" class="google-maps" id="google-maps-container"></div>
+									</div>
+								</article>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section><!-- #content end -->
+
+		<section id="" class="mt-0 pt-0 bg-rosa">
+			<div class="container">
+				<div class="swiper_wrapper min-vh-60 min-vh-lg-75" data-loop="true">
+
+					<div class="col-lg-10 offset-lg-1 bg-white pt-80 p-40-mob" style="border-radius: 80px;">
+						<div class="row">
+
+
+							<div class="col-lg-12 text-center">
+								<p class="text-center-xs">COD XXXXXX-Fev/2025 - Material destinado a todos os públicos.</p>
+								<img src="img/logo-biopas.png" alt="Biopas" title="Biopas">
+								<h3 class="text-center-xs mb-0 pt-30 fw-light">Líder em soluções conectando você a sua melhor saúde.</h3>
+
+
+							</div>
+
+							<div class="col-lg-12 text-center pt-80 mb-0">
+								<p>
+									<a target="_blank" href="#" class="text-black">Política de Privacidade</a>
+									<span class="text-rosa">|</span>
+									<a target="_blank" href="#" class="text-black">Termos de Uso</a>
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- <p class="text-white text-center mt-40">© 2017 - 2024 Merck KGaA, Darmstadt, Germany and/or its affiliates. All rights reserved.</p> -->
+
+					<p class=" text-center mt-40">
+						© 2025 Programa Integra Vida®. All rights reserved. <br>
+						"AV-CHP-ATA-M31-2025-Vig.MAR2027-BR. Material aprovado em março de 2025"
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<partial name="~/Views/PartialViews/ContentRegulamento.cshtml" />
+
+		<div id="top-bar" class="text-center dark">
+		</div>
+
+	</div><!-- #wrapper end -->
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="uil uil-angle-up"></div>
+
+	<partial name="~/Views/PartialViews/FootDependencies.cshtml" />
+
+	<script type="text/javascript">
+		(function() {
+			qrvPages.indexPage('@Model.GoogleMapsApiKey');
+			qrvCookie.init('@Model.GoogleAnalyticsId');
+		})();
+	</script>
+
+</body>
+</html>
