@@ -2,6 +2,8 @@ using BiopasIntegraVida.Infrastructure.Interfaces;
 using BiopasIntegraVida.InterPlayers.Services;
 using BiopasIntegraVida.Web.Configuration;
 using Microsoft.AspNetCore.ResponseCompression;
+using Serilog;
+using Serilog.Events;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,22 @@ var appSettings = new AppSettingsValues(builder.Configuration);
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 
+var loggerConfig = new LoggerConfiguration();
+loggerConfig = loggerConfig.WriteTo.Console();
+
+if(!string.IsNullOrWhiteSpace(appSettings.SentryDsn))
+{
+    loggerConfig = loggerConfig.WriteTo.Sentry(o =>
+    {
+        o.MinimumBreadcrumbLevel = LogEventLevel.Information;
+        o.MinimumEventLevel = LogEventLevel.Error;
+        o.Dsn = appSettings.SentryDsn;
+    });
+}
+
+Log.Logger = loggerConfig.CreateLogger();
+
+builder.Services.AddSerilog();
 builder.Services.AddResponseCompression(options =>
 {
     options.EnableForHttps = true;

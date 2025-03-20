@@ -1,14 +1,11 @@
-﻿using Microsoft.Extensions.Configuration;
-using System.Text.Json;
-using System.Text.Json.Nodes;
-
-namespace BiopasIntegraVida.Web.Configuration
+﻿namespace BiopasIntegraVida.Web.Configuration
 {
     public class AppSettingsValues
     {
         public bool ApplicationConfigCompressContent { get; init; }
         public string GoogleMapsApiKey { get; init; }
         public string GoogleAnalyticsId { get; init; }
+        public string? SentryDsn { get; init; }
 
         public string InterPlayersAdB2cTokenUrl { get; init; }
         public string InterPlayersAdB2cClientId { get; init; }
@@ -34,7 +31,8 @@ namespace BiopasIntegraVida.Web.Configuration
         {
             ApplicationConfigCompressContent = GetValueOrThrow<bool>(config, "ApplicationConfig:CompressContent");
             GoogleMapsApiKey = GetValueOrThrow<string>(config, "GoogleMaps:ApiKey");
-            GoogleAnalyticsId = GetValueOrThrow<string>(config, "GoogleAnalytics:Id"); 
+            GoogleAnalyticsId = GetValueOrThrow<string>(config, "GoogleAnalytics:Id");
+            SentryDsn = config.GetValue<string?>("Sentry:Dsn");
 
             InterPlayersAdB2cTokenUrl = GetValueOrThrow<string>(config, "InterPlayers:AdB2c:TokenUrl");
             InterPlayersAdB2cScope = GetValueOrThrow<string>(config, "InterPlayers:AdB2c:Scope");

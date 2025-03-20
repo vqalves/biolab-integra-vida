@@ -447,17 +447,10 @@ public class HomeController : BaseController
         }
     }
 
-    [HttpGet("confirmacao-envio")]
+    [HttpGet("error")]
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult ConfirmacaoEnvio()
+    public IActionResult Error()
     {
-        return View("Views/LandingPages/confirmacao-envio.cshtml");
-    }
-
-    [HttpGet("senha")]
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Senha()
-    {
-        return View("Views/LandingPages/senha.cshtml");
+        throw new NotImplementedException();
     }
 }
