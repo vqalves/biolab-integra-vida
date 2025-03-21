@@ -1,5 +1,5 @@
 # BiopasIntegraVida - Instalação
-Versão 2 (10/02/2025)
+Versão 1 (21/03/2025)
 
 ## Configuração
 É necessário que a máquina possa rodar projeto .NET Core 8.0
@@ -19,7 +19,7 @@ docker build --no-cache .
 Para criar uma chave de Google Maps nova, seguir as instruções oficiais do Google<br/>
 https://developers.google.com/maps/documentation/javascript/get-api-key
 
-A chave deve ser alimentada dentro do `applicationSettings.json`
+A chave deve ser alimentada dentro do `appsettings.json`
 ```json
 {
     "GoogleMaps": {
@@ -28,10 +28,40 @@ A chave deve ser alimentada dentro do `applicationSettings.json`
 }
 ```
 
-Na conta do Google, criar um Maps ID chamado `BiopasIntegraVida-farmacias`, de acordo com as instruções oficiais do Google<br/>
+Na conta do Google, criar um Maps ID chamado `farmacias`, de acordo com as instruções oficiais do Google<br/>
 https://developers.google.com/maps/documentation/javascript/map-ids/get-map-id
 
 É importante que a conta do Google Maps esteja com o billing configurado. Caso contrário, no site poderá aparecer que o mapa não pôde ser carregado corretamente.
+
+## Configuração do Google Analytics
+Ao criar um novo projeto na conta de <a href="https://analytics.google.com/analytics/web/">Google Analytics</a>, copiar o identificador do projeto e colocar no atributo `GoogleAnalytics:Id` dentro do `appsettings.json`.
+
+O identificador costuma ter um formato semelhante a `G-XXXXXXXXXX`.
+
+```json
+{
+    "GoogleAnalytics": {
+        "Id": "G-XXXXXXXXXX"
+    }
+}
+```
+
+## Configuração do sistema de logs de erro Sentry (opcional)
+Se não desejar utilizar o Sentry, mantenha o atributo `Sentry:Dsn` em branco.
+
+Para utilizar o Sentry, crie o projeto na <a href="https://sentry.io">plataforma Sentry</a>.
+
+Após criação do projeto, dentro das configurações do projeto, acessar o menu `SDK Setup` -> `Client Keys (DSN)`.
+
+Copiar o valor contido no campo DSN, e colocar no atributo `Sentry:Dsn` dentro do `appsettings.json`.
+
+```json
+{
+    "Sentry": {
+        "Dsn": "https://xxx@xxx.ingest.us.sentry.io/xxx"
+    }
+}
+```
 
 ## Compressão de arquivos
 O sistema trabalha com mecanismos internos de compressão (br, gzip) e minificação de arquivos estáticos, como javascript e CSS. A flag, contida no `appsettings.json` poder ser ativada ou desativada através do atributo `ApplicationConfig:CompressContent`, que deve ser setada como `true` ou `false`.
@@ -53,18 +83,10 @@ O sistema tem capacidade de customizar o nome do produto exibido baseado no EAN.
 {
     "InterPlayers": {
         "CustomProductNames": [
-            { "name": "CONTRAVE", "ean": "7891721201691" },
-            { "name": "EUTHYROX 25MCG", "ean": "7891721014642" },
-            { "name": "EUTHYROX 50MCG", "ean": "7891721014697" },
-            { "name": "EUTHYROX 75MCG", "ean": "7891721014741" },
-            { "name": "EUTHYROX 88MCG", "ean": "7891721014963" },
-            { "name": "EUTHYROX 100MCG", "ean": "7891721014239" },
-            { "name": "EUTHYROX 112MCG", "ean": "7891721014987" },
-            { "name": "EUTHYROX 125MCG", "ean": "7891721014086" },
-            { "name": "EUTHYROX 137MCG", "ean": "7891721015007" },
-            { "name": "EUTHYROX 150MCG", "ean": "7891721014130" },
-            { "name": "EUTHYROX 175MCG", "ean": "7891721014185" },
-            { "name": "EUTHYROX 200MCG", "ean": "7891721014796" }
+            { "name": "ATACAND 16MG", "ean": "7896206401146" },
+            { "name": "ATACAND 8MG", "ean": "7896206401160" },
+            { "name": "ATACAND HTC 16MG", "ean": "7896206402082" },
+            { "name": "ATACAND HTC 8MG", "ean": "7896206402426" }
         ]
     }
 }
@@ -85,7 +107,7 @@ Tanto as informações de autenticação como as informações de conexão com a
         "ClientSecret": "<hidden>"
     },
     "Loyalty": {
-        "AdministratorId": "041",
+        "AdministratorId": "021",
         "UrlConsultarUf": "<url_do_ambiente>",
         "UrlConsultarMedicamentos": "<url_do_ambiente>",
         "UrlConsultarEstabelecimentos": "<url_do_ambiente>",
@@ -109,7 +131,7 @@ Em casos de hospedagem em conteiners, uma imagem pra cada ambiente deve ser gera
 Exemplo de JSON do appSettings.json
 ```json
 {
-  "AdministratorId": "041",
+  "AdministratorId": "021",
   "UrlConsultarEstabelecimentos": "https://domain/service/v2/Establishment/administrators/{administratorId}/types/MH/establishments?zip={zip}"
 }
 ```

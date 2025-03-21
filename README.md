@@ -1,5 +1,5 @@
 # BiopasIntegraVida - Documentação
-Escrito por Vinicius Quinafelex Alves<br/>Versão 1.1 (31/01/2025)
+Escrito por Vinicius Quinafelex Alves<br/>Versão 1 (21/03/2025)
 
 ## Sumário
 
@@ -38,7 +38,7 @@ Atualmente o ambiente de desenvolvimento não permite emitir tokens via MSAL.
     "grant_type": "client_credentials",
     "client_id": "<client_id>",
     "client_secret": "<client_secret>",
-    "scope": "<scope>" }
+    "scope": "<scope>"
 }
 ```
 

@@ -447,7 +447,7 @@ public class HomeController : BaseController
         }
     }
 
-    [HttpGet("error")]
+    [HttpGet("erro")]
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
