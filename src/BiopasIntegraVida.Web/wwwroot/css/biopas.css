@@ -103,7 +103,7 @@ body::-webkit-scrollbar {
 
 @media (max-width: 767px) {
 	#como-funciona {
-		margin-top: -100px;
+		margin-top: 0px;
 		padding-top: 30px;
 	}
 }
