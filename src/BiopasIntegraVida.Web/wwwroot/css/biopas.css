@@ -30,10 +30,13 @@ body::-webkit-scrollbar {
 	margin-right: -10px;
 }
 
+.box-resultados-margin {
+	padding: 20px 0px;
+}
+
 .box-resultados-int::-webkit-scrollbar {
-	width: 4px;               /* width of the entire scrollbar */
-	
-  }
+	width: 4px; /* width of the entire scrollbar */
+}
   
 .box-resultados-int::-webkit-scrollbar-track {
 	background: transparent !important;        /* color of the tracking area */
