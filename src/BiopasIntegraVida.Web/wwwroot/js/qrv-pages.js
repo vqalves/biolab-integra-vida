@@ -29,9 +29,16 @@ var qrvPages = (function () {
                     if (!mapItem)
                         continue;
 
-                    // Recenter map
-                    const center = new google.maps.LatLng(lojas[0].latitude, lojas[0].longitude);
-                    mapItem.panTo(center);
+
+
+					// Recenter map
+					for (var loja of lojas) {
+						if (loja.latitude === 0 && loja.longitude === 0)
+							continue;
+
+						const center = new google.maps.LatLng(loja.latitude, loja.longitude);
+						mapItem.panTo(center);
+					}
 
                     // Add markers
                     for (var loja of lojas) {
