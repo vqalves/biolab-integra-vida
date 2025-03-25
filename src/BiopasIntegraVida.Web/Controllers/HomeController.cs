@@ -75,12 +75,22 @@ public class HomeController : BaseController
         [FromServices]InterPlayersService interPlayersService
     )
     {
-        string valueCep = Request.Form["cep"].ToString();
+        var result = new FormResult();
+
+        var fieldCep = result.WithField("cep");
+        var valueCep = Request.Form[fieldCep.Key].ToString();
+
+        if (!CEP.IsValid(valueCep))
+            fieldCep.Add("CEP inválido");
+
+        if (result.HasMessage)
+            return Json(Array.Empty<string>());
+
         var cep = CEP.Parse(valueCep);
 
-        var result = await interPlayersService.ConsultarEstabelecimentosAsync(cep);
+        var estabelecimentos = await interPlayersService.ConsultarEstabelecimentosAsync(cep);
 
-        var lojas = result.Data!.establishments!.Select(x => new
+        var lojas = estabelecimentos.Data!.establishments!.Select(x => new
         {
             name = x.GetFormattedName(),
             latitude = Convert.ToDecimal(x.latitude, EN_US),
@@ -259,7 +269,7 @@ public class HomeController : BaseController
         else if(valueNome.Split(" ", StringSplitOptions.RemoveEmptyEntries).Length < 2)
             fieldNome.Add("Preencha o nome completo");
 
-        var isNascimentoValid = DateTime.TryParseExact(valueNascimento, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsedDate);
+        var isNascimentoValid = DataNascimento.TryParse(valueNascimento, out var parsedDate);
         if (string.IsNullOrWhiteSpace(valueNascimento))
         {
             fieldNascimento.Add("Preencha a data de nascimento");
@@ -375,7 +385,7 @@ public class HomeController : BaseController
         var ddd = TelefoneDDD.Parse(Request.Form[CadastreSeDadosCampos.ddd]!);
         var telefone = Telefone.Parse(Request.Form[CadastreSeDadosCampos.telefone]!);
         var uf = UF.FindBySigla(Request.Form[CadastreSeDadosCampos.uf])!;
-        var dataNascimento = Convert.ToDateTime(Request.Form[CadastreSeDadosCampos.nascimento]);
+        var dataNascimento = DataNascimento.Parse(Request.Form[CadastreSeDadosCampos.nascimento]);
         var genero = InterPlayersPersonGenre.INDEFINIDO;
 
         var medicamentosIP = await interPlayersService.ConsultarMedicamentosAsync();
